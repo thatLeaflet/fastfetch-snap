@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Fastfetch
+Comment=Like neofetch, but much faster because written mostly in C
+Exec=fastfetch
+#Icon=${SNAP}/meta/gui/.png
+Terminal=true
+Type=Application
+NoDisplay=true
+Categories=Utilities;

@@ -1,0 +1,49 @@
+name: fastfetch
+title: fastfetch (unofficial)
+version: 2.15.0
+license: MIT
+#website: 
+source-code: https://github.com/fastfetch-cli/fastfetch
+#contact: 
+issues: https://github.com/thatLeaflet/fastfetch-snap/issues
+#donations: https://github.com/sponsors/LinusDierheimer
+type: app
+#icon: snap/gui/.png
+summary: Like neofetch, but much faster because written mostly in C. 
+description: |
+  Fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way. It is written mainly in C, with performance and customizability in mind.
+  
+  Note: This is an unofficial repackaging and is not endorsed by the upstream project.
+
+confinement: classic
+base: core22
+compression: lzo
+grade: stable
+architectures:
+  - build-on: [amd64]
+    build-for: [amd64]
+  - build-on: [amd64]
+    build-for: [arm64]
+
+parts:
+  fastfetch:
+    plugin: dump
+    source:
+      - on amd64: https://github.com/fastfetch-cli/fastfetch/releases/download/$SNAPCRAFT_PROJECT_VERSION/fastfetch-linux-amd64.deb
+      - on arm64: https://github.com/fastfetch-cli/fastfetch/releases/download/$SNAPCRAFT_PROJECT_VERSION/fastfetch-linux-aarch64.deb
+    prime: [ usr/bin, usr/share ]
+
+#plugs:
+#  etc-osrelease:
+#    interface: system-files
+#    read: [ /etc/os-release ]
+
+apps:
+  fastfetch:
+    command: /usr/bin/fastfetch
+#    extensions: [ gnome ]
+#    plugs:
+#      - hardware-observe
+#      - system-observe
+#      - network
+#      - etc-osrelease
