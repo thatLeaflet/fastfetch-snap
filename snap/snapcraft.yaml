@@ -4,7 +4,6 @@ version: 2.16.0
 license: MIT
 #website: 
 source-code: https://github.com/fastfetch-cli/fastfetch
-#contact: 
 issues: https://github.com/thatLeaflet/fastfetch-snap/issues
 #donations: https://github.com/sponsors/LinusDierheimer
 type: app
@@ -35,17 +34,6 @@ parts:
       - on arm64: https://github.com/fastfetch-cli/fastfetch/releases/download/$SNAPCRAFT_PROJECT_VERSION/fastfetch-linux-aarch64.deb
     prime: [ usr/bin, usr/share ]
 
-#plugs:
-#  etc-osrelease:
-#    interface: system-files
-#    read: [ /etc/os-release ]
-
 apps:
   fastfetch:
     command: /usr/bin/fastfetch
-#    extensions: [ gnome ]
-#    plugs:
-#      - hardware-observe
-#      - system-observe
-#      - network
-#      - etc-osrelease
