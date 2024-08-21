@@ -43,3 +43,5 @@ parts:
 apps:
   fastfetch:
     command: /usr/bin/fastfetch
+  flashfetch: # needs to be run with "fastfetch.flashfetch"
+    command: /usr/bin/flashfetch
