@@ -31,6 +31,14 @@ parts:
     source:
       - on amd64: https://github.com/fastfetch-cli/fastfetch/releases/download/$SNAPCRAFT_PROJECT_VERSION/fastfetch-linux-amd64.deb
       - on arm64: https://github.com/fastfetch-cli/fastfetch/releases/download/$SNAPCRAFT_PROJECT_VERSION/fastfetch-linux-aarch64.deb
+    build-packages:
+      - patchelf
+    override-prime: |
+      craftctl default
+      patchelf --force-rpath --set-rpath '$ORIGIN/lib:/snap/core24/current/lib/x86_64-linux-gnu' /root/prime/usr/bin/fastfetch
+      patchelf --set-interpreter /snap/core24/current/lib64/ld-linux-x86-64.so.2 /root/prime/usr/bin/fastfetch
+      patchelf --force-rpath --set-rpath '$ORIGIN/lib:/snap/core24/current/lib/x86_64-linux-gnu' /root/prime/usr/bin/flashfetch
+      patchelf --set-interpreter /snap/core24/current/lib64/ld-linux-x86-64.so.2 /root/prime/usr/bin/flashfetch
 
 apps:
   fastfetch:
